@@ -38,3 +38,8 @@ function route(path, templates){
         return;
     };
 };
+
+function template(name, templateFunction) {
+    return templates[name] = templateFunction;
+};
+
