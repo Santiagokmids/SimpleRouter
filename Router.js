@@ -9,7 +9,7 @@ function home(){
     link.href = '#/about';
     link.innerText = 'About';
 
-    div.innerHTML = <h1>Home</h1>;
+    div.innerHTML = '<h1>Home</h1>';
     div.appendChild(link);
 
     app_div.appendChild(div);
@@ -28,7 +28,7 @@ function about() {
 };
 
 function route(path, templates){
-    if(typeof template === 'Function'){
+    if(typeof template === 'function'){
         return routes[path] = template;
 
     }else if(typeof template === 'string'){
@@ -47,7 +47,7 @@ template('home', function(){
     home();
 });
 
-template('abaout', function(){
+template('about', function(){
     about();
 });
 
@@ -57,13 +57,13 @@ route('/about', 'about');
 function resolveRoute(route) {
     try {
         return routes[route];
-    } catch {
+    } catch (e){
         throw new Error(`La ruta ${route} no se encontro`);
     };
 };
 
 function router(etv){
-    let url = window.location.hash.slice(1) || '/'
+    let url = window.location.hash.slice(1) || '/';
     let route = resolveRoute(url);
 
     route();
