@@ -58,6 +58,13 @@ function resolveRoute(route) {
     try {
         return routes[route];
     } catch {
-        throw new Error(`Route ${route} not found`);
+        throw new Error(`La ruta ${route} no se encontro`);
     };
 };
+
+function router(etv){
+    let url = window.location.hash.slice(1) || '/'
+    let route = resolveRoute(url);
+
+    route();
+}
