@@ -43,3 +43,10 @@ function template(name, templateFunction) {
     return templates[name] = templateFunction;
 };
 
+template('home', function(){
+    home();
+});
+
+template('abaout', function(){
+    about();
+});
