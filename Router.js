@@ -27,3 +27,14 @@ function about() {
     app_div.appendChild(div);
 };
 
+function route(path, templates){
+    if(typeof template === 'Function'){
+        return routes[path] = template;
+
+    }else if(typeof template === 'string'){
+        return routes [path] = templates[template];
+
+    }else{
+        return;
+    };
+};
