@@ -3,12 +3,12 @@ let templates = {};
 
 let app_div = document.getElementById('app');
 
+let div = document.createElement('div');
+let link = document.createElement('a');
+
 function home(){
-    let div = document.createElement('div');
-    let link = document.createElement('a');
     link.href = '#/about';
     link.innerText = 'About';
-
     div.innerHTML = '<h1>Home</h1>';
     div.appendChild(link);
 
@@ -16,18 +16,16 @@ function home(){
 };
 
 function about() {
-    let div = document.createElement('div');
-    let link = document.createElement('a');
     link.href = '#/';
     link.innerText = 'Home';
-
     div.innerHTML = '<h1>About</h1>';
     div.appendChild(link);
 
     app_div.appendChild(div);
 };
 
-function route(path, templates){
+function route(path, template){
+    
     if(typeof template === 'function'){
         return routes[path] = template;
 
@@ -65,7 +63,6 @@ function resolveRoute(route) {
 function router(etv){
     let url = window.location.hash.slice(1) || '/';
     let route = resolveRoute(url);
-
     route();
 };
 
