@@ -50,3 +50,14 @@ template('home', function(){
 template('abaout', function(){
     about();
 });
+
+route('/', 'home');
+route('/about', 'about');
+
+function resolveRoute(route) {
+    try {
+        return routes[route];
+    } catch {
+        throw new Error(`Route ${route} not found`);
+    };
+};
